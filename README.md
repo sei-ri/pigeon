@@ -1,0 +1,2 @@
+# pigeon
+CQRS + event sourcing
