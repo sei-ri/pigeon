@@ -183,7 +183,7 @@ func (s *Storage) All(ctx context.Context, f pigeon.Filter) ([]pigeon.Data, erro
 
 func (s *Storage) Get(ctx context.Context, f pigeon.Filter) (*pigeon.Data, error) {
 	where, args := filter(ctx, f)
-	stmt := fmt.Sprintf("SELECT id, version, type, dump FROM event_log WHERE %s LIMIT 1", where)
+	stmt := fmt.Sprintf("SELECT id, version, type, dump FROM event_log WHERE %s ORDER BY version DESC LIMIT 1", where)
 
 	tx, err := s.db.BeginTx(ctx, nil)
 	if err != nil {
