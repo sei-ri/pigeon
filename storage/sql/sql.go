@@ -112,7 +112,7 @@ func (s *Storage) open(ctx context.Context) error {
 
 func (s *Storage) Close() error {
 	if s.db != nil {
-		return s.Close()
+		return s.db.Close()
 	}
 	return nil
 }
